@@ -1,9 +1,10 @@
-import 'package:competition/sign_in/cubit/states.dart';
+import 'package:competition/screens/sign_in/cubit/states.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../models/user_model.dart';
+import '../../../models/user_model.dart';
+
 
 class SignInCubit extends Cubit<LoginStates> {
   SignInCubit() : super(LoginIntialState()); // need intial state in the super

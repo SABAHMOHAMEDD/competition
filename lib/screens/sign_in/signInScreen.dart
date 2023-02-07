@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:competition/home/home_screen.dart';
-import 'package:competition/sign_up/signUpScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +8,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../const/const.dart';
+import '../../const/const.dart';
+import '../../widgets/button.dart';
+import '../../widgets/text_field.dart';
+import '../sign_up/signUpScreen.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -68,23 +70,26 @@ class SignInScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              component1(context, Icons.email_outlined,
-                                  'Email...', false, true, emailController),
-                              component1(
-                                  context,
-                                  Icons.lock_outline,
-                                  'Password...',
-                                  true,
-                                  false,
-                                  passwordController),
+                              EditTextField(
+                                  context:context,
+                                  icon: Icons.email_outlined,
+                                  hintText: 'Email...', isPassword: false,isEmail:  true,controller:  emailController
+                              ),
+                              EditTextField(
+                                  context: context,
+                                  icon: Icons.lock_outline,
+                                  hintText: 'Password...',
+                                  isPassword: true,
+                                  isEmail: false,
+                                  controller: passwordController),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  component2(
-                                    context,
-                                    'SIGN IN',
-                                    2.58,
-                                    () {
+                                  Button(
+                                    context: context,
+                                    string: 'SIGN IN',
+                                    width: 2.58,
+                                    voidCallback: () {
                                       HapticFeedback.lightImpact();
                                       Fluttertoast.showToast(
                                           msg: 'Login button pressed');
@@ -106,11 +111,11 @@ class SignInScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              component2(
-                                context,
-                                'SIGN UP',
-                                2,
-                                () {
+                              Button(
+                                context: context,
+                                string: 'SIGN UP',
+                                width: 2,
+                                voidCallback: () {
                                   HapticFeedback.lightImpact();
                                   Fluttertoast.showToast(
                                       msg: 'SIGN UP button pressed');
@@ -132,78 +137,6 @@ class SignInScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget component1(context, IconData icon, String hintText, bool isPassword,
-    bool isEmail, controller) {
-  Size size = MediaQuery.of(context).size;
-  return ClipRRect(
-    borderRadius: BorderRadius.circular(15),
-    child: BackdropFilter(
-      filter: ImageFilter.blur(
-        sigmaY: 15,
-        sigmaX: 15,
-      ),
-      child: Container(
-        height: size.width / 8,
-        width: size.width / 1.2,
-        alignment: Alignment.center,
-        padding: EdgeInsets.only(right: size.width / 30),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(.1),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: TextField(
-          controller: controller,
-          style: TextStyle(color: Colors.white.withOpacity(.8)),
-          cursorColor: Colors.white,
-          obscureText: isPassword,
-          keyboardType:
-              isEmail ? TextInputType.emailAddress : TextInputType.text,
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              icon,
-              color: Colors.white.withOpacity(.7),
-            ),
-            border: InputBorder.none,
-            hintMaxLines: 1,
-            hintText: hintText,
-            hintStyle:
-                TextStyle(fontSize: 14, color: Colors.white.withOpacity(.5)),
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-Widget component2(
-    context, String string, double width, VoidCallback voidCallback) {
-  Size size = MediaQuery.of(context).size;
-  return ClipRRect(
-    borderRadius: BorderRadius.circular(15),
-    child: BackdropFilter(
-      filter: ImageFilter.blur(sigmaY: 15, sigmaX: 15),
-      child: InkWell(
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        onTap: voidCallback,
-        child: Container(
-          height: size.width / 8,
-          width: size.width / width,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.1),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Text(
-            string,
-            style: TextStyle(color: Colors.white.withOpacity(.9)),
-          ),
-        ),
-      ),
-    ),
-  );
 }
 
 void showToast({

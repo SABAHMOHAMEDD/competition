@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:competition/sign_up/cubit/states.dart';
+import 'package:competition/screens/sign_up/cubit/states.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../models/user_model.dart';
+import '../../../models/user_model.dart';
+
 
 class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit()

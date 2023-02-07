@@ -1,6 +1,6 @@
+import 'package:competition/screens/sign_in/cubit/cubit.dart';
+import 'package:competition/screens/sign_in/signInScreen.dart';
 import 'package:competition/shared/network/remote/dio_helper.dart';
-import 'package:competition/sign_in/cubit/cubit.dart';
-import 'package:competition/sign_in/signInScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
