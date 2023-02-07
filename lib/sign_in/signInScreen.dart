@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../const/const.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -113,8 +114,7 @@ class SignInScreen extends StatelessWidget {
                                   HapticFeedback.lightImpact();
                                   Fluttertoast.showToast(
                                       msg: 'SIGN UP button pressed');
-                                  Get.to(() => SignUpScreen(),
-                                      duration: Duration(seconds: 1));
+                                  navigateToReplacement(context, SignUpScreen());
                                 },
                               ),
                               SizedBox(height: size.height * .05),
