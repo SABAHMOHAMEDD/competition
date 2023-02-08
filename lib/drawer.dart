@@ -11,7 +11,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey,
+      color: Colors.white,
       padding: EdgeInsets.only(top: 50, bottom: 70, left: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,7 +19,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.blueGrey,
               ),
               SizedBox(
                 width: 10,
@@ -30,12 +30,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   Text(
                     'Sabah Mohamed',
                     style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        color: Colors.blueGrey, fontWeight: FontWeight.bold),
                   ),
                   Text('Active Status',
                       style: TextStyle(
                           fontSize: 13,
-                          color: Colors.white,
+                          color: Colors.blueGrey,
                           fontWeight: FontWeight.w400))
                 ],
               )
@@ -49,7 +49,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         children: [
                           Icon(
                             element['icon'],
-                            color: Colors.white,
+                            color: Colors.blueGrey,
                             size: 14,
                           ),
                           SizedBox(
@@ -57,7 +57,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           ),
                           Text(element['title'],
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.blueGrey,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20))
                         ],
@@ -69,15 +69,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
             children: [
               Icon(
                 Icons.settings,
-                color: Colors.white,
+                color: Colors.blueGrey,
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
                 'Settings',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 width: 10,
@@ -85,15 +85,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
               Container(
                 width: 2,
                 height: 20,
-                color: Colors.white,
+                color: Colors.blueGrey,
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
                 'Log out',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.blueGrey, fontWeight: FontWeight.bold),
               )
             ],
           )

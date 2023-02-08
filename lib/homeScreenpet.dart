@@ -101,7 +101,7 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                                 Spacer(),
                                 Center(
                                   child: Text(
-                                    '....اهلا بك!',
+                                    '      ..مرحبا بك          ',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
@@ -136,7 +136,7 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                                       child: TextField(
                                         onChanged: (value) {},
                                         decoration: InputDecoration(
-                                            hintText: 'search',
+                                            hintText: 'ابحث عن خدمة',
                                             hintStyle: TextStyle(
                                                 color: Colors.blueGrey
                                                     .withOpacity(0.5)),
