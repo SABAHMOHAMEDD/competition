@@ -1,12 +1,11 @@
-import 'dart:ui';
-
+import 'package:competition/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
+import '../../const/const.dart';
 import '../../widgets/button.dart';
 import '../../widgets/text_field.dart';
 import '../sign_in/signInScreen.dart';
@@ -28,7 +27,7 @@ class SignUpScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is CreateUserSuccessState) {
             {
-              // Navigator.pushReplacementNamed(context, Layout.RouteName);
+              navigateToReplacement(context, HomeScreen());
             }
           }
         },
@@ -109,6 +108,8 @@ class SignUpScreen extends StatelessWidget {
                                         HapticFeedback.lightImpact();
                                         Fluttertoast.showToast(
                                             msg: 'Login button pressed');
+                                        navigateToReplacement(
+                                            context, HomeScreen());
                                       },
                                     ),
                                     SizedBox(width: size.width / 20),

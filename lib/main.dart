@@ -1,12 +1,13 @@
 import 'package:competition/screens/sign_in/cubit/cubit.dart';
-import 'package:competition/screens/sign_in/signInScreen.dart';
 import 'package:competition/shared/network/remote/dio_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc_observer.dart';
+import 'drawer.dart';
 import 'firebase_options.dart';
+import 'homeScreenpet.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,11 +31,23 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => SignInCubit()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: SignInScreen(),
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: HomePage() //HomeScreen(),
+          // home: MessagesScreen(),
+          ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [DrawerScreen(), HomeScreenpet()],
       ),
     );
   }
