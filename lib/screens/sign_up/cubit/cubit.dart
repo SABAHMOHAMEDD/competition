@@ -29,6 +29,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String email,
     required String password,
     required String phone,
+    required String NId,
+    required DateTime DOB,
   }) {
     emit(RegisterLoadinState());
     FirebaseAuth.instance
@@ -37,10 +39,15 @@ class RegisterCubit extends Cubit<RegisterStates> {
       print(value.user?.email);
       print(value.user?.uid);
       UserCreate(
-          name: name,
-          email: email,
-          uId: value.user!.uid,
-          phone: phone); // save data in firestore
+        name: name,
+        email: email,
+        uId: value.user!.uid,
+        phone: phone,
+        NId: NId,
+        DOB: DOB,
+
+
+      ); // save data in firestore
     }).catchError((error) {
       emit(RegisterErrorState(error.toString()));
     });
@@ -52,12 +59,16 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String email,
     required String phone,
     required String uId,
+    required String NId,
+    required DateTime DOB
   }) {
     UserModel model = UserModel(
-      name: name,
-      email: email,
-      phone: phone,
-      uId: uId,
+        name: name,
+        email: email,
+        phone: phone,
+        uId: uId,
+        NId: NId,
+        DOB: DOB
     );
     FirebaseFirestore.instance
         .collection('users')

@@ -3,6 +3,7 @@ import 'package:competition/shared/network/remote/dio_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'bloc_observer.dart';
 import 'drawer.dart';
@@ -31,6 +32,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => SignInCubit()),
       ],
       child: MaterialApp(
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: [
+            const Locale('en'),
+            const Locale('ar'),
+          ],
+          locale: const Locale('ar'),
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
