@@ -1,3 +1,4 @@
+import 'package:competition/const/const.dart';
 import 'package:competition/screens/sign_in/cubit/states.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class SignInCubit extends Cubit<LoginStates> {
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       print(value.user?.email);
+      uId = value.user!.uid;
       emit(LoginSuccessState(value.user!.uid));
     }).catchError((error) {
       emit(LoginErrorState(error.toString()));

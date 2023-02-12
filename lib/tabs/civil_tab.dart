@@ -1,3 +1,4 @@
+import 'package:competition/screens/chat_screen/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../const/const.dart';
@@ -37,7 +38,7 @@ class CivilTab extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                   onTap: () {
-                    navigateToReplacement(context, MessagesScreen());
+                    navigateTo(context, ChatDetailsScreen(serviceID: 'v07COa4kjYSVRyFsanTNM0kPrcq2'));
                   },
                   child: DonutTile(
                     donutFlavour: civilList[index],

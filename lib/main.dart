@@ -1,13 +1,19 @@
+import 'package:competition/screens/chat_screen/cubit/chat_cubit.dart';
 import 'package:competition/screens/sign_in/cubit/cubit.dart';
+import 'package:competition/screens/sign_in/signInScreen.dart';
 import 'package:competition/shared/network/remote/dio_helper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc_observer.dart';
+import 'const/const.dart';
 import 'drawer.dart';
 import 'firebase_options.dart';
 import 'homeScreenpet.dart';
+
+bool? isLogin;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +24,13 @@ void main() async {
   );
 
   DioHelper.init();
+  User? user = FirebaseAuth.instance.currentUser;
+  if (user == null) {
+    isLogin = false;
+  } else {
+    uId = user.uid;
+    isLogin = true;
+  }
   runApp(MyApp());
 }
 
@@ -28,14 +41,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (BuildContext context) => SignInCubit()),
+        BlocProvider(create: (BuildContext context) => ChatCubit()),
       ],
       child: MaterialApp(
-          title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+          title: 'Smart services',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: HomePage() //HomeScreen(),
+          home: isLogin!? HomePage(): SignInScreen() //HomeScreen(),
           // home: MessagesScreen(),
           ),
     );

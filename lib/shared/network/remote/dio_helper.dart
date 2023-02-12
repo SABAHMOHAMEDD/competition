@@ -6,27 +6,25 @@ class DioHelper {
   static init() {
     return Dio(
       BaseOptions(
-        baseUrl: 'https://student.valuxapps.com/api/',
+        baseUrl: 'https://api.wit.ai/',
         receiveDataWhenStatusError: true,
       ),
     );
   }
 
   static Future<Response> getData({
-    required String url,
-    String lang = 'en',
-    String? token,
-    Map<String, dynamic>? query,
+     String url = 'message',
+    required String query,
   }) async {
     dio.options.headers = {
-      'lang': lang,
       'Content-Type': 'application/json',
-      'Authorization': token
+      'Authorization': 'Bearer WK4S4PYHTVTYZW3N63LBH7X35UPM52ZG'
     };
-
     return await dio.get(
       url,
-      queryParameters: query,
+      queryParameters: {
+        'q': query
+      },
     );
   }
 

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:competition/home/home_screen.dart';
+import 'package:competition/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,6 +36,7 @@ class SignInScreen extends StatelessWidget {
             // CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
             //   Navigator.pushReplacementNamed(context, Layout.RouteName);
             // });
+            navigateToReplacement(context, HomePage());
           }
         },
         builder: (context, state) {
