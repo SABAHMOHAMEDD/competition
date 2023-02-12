@@ -9,7 +9,18 @@ class EditTextField extends StatelessWidget {
   final bool isPassword;
   final bool isEmail;
   final TextEditingController controller;
-  const EditTextField({Key? key, required this.context, required this.icon, required this.hintText, required this.isPassword, required this.isEmail, required this.controller}) : super(key: key);
+  final Function ontab;
+
+  const EditTextField(
+      {Key? key,
+      required this.context,
+      required this.icon,
+      required this.hintText,
+      required this.isPassword,
+      required this.isEmail,
+      required this.controller,
+      required this.ontab})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +42,13 @@ class EditTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
+            onTap: ontab(),
             controller: controller,
             style: TextStyle(color: Colors.white.withOpacity(.9)),
             cursorColor: Colors.white,
             obscureText: isPassword,
             keyboardType:
-            isEmail ? TextInputType.emailAddress : TextInputType.text,
+                isEmail ? TextInputType.emailAddress : TextInputType.text,
             decoration: InputDecoration(
               prefixIcon: Icon(
                 icon,

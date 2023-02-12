@@ -1,6 +1,5 @@
 import 'package:competition/tabs/civil_tab.dart';
 import 'package:competition/tabs/education_tab.dart';
-import 'package:competition/tabs/marafek_tab.dart';
 import 'package:competition/tabs/travel_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,10 +18,9 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
 
   bool isDrawerOpen = false;
   List<Widget> mytabs = [
-    MyTab(text: ' خدمات مدنية'),
-    MyTab(text: ' التعليم'),
-    MyTab(text: ' السفر والتنقل'),
-    MyTab(text: ' المرافق')
+    MyTab(text: 'خدمات القطارات'),
+    MyTab(text: ' الشبكات'),
+    MyTab(text: ' خدمات المرور'),
   ];
 
   @override
@@ -158,6 +156,7 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                 ),
               ),
               TabBar(
+                  indicatorWeight: 2,
                   indicatorColor: Colors.blueGrey,
                   physics: BouncingScrollPhysics(),
                   tabs: mytabs),
@@ -166,7 +165,6 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                   CivilTab(),
                   EducationTab(),
                   TravelTab(),
-                  MarafekTab()
                 ]),
               )
             ],

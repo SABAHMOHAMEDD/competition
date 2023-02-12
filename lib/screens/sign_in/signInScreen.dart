@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:competition/home/home_screen.dart';
 import 'package:competition/main.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../const/const.dart';
 import '../../widgets/button.dart';
@@ -41,7 +38,7 @@ class SignInScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: Colors.blue.shade500
+            backgroundColor: Colors.blueGrey
             //Color(0xff192028),
             ,
             body: SingleChildScrollView(
@@ -73,11 +70,18 @@ class SignInScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               EditTextField(
-                                  context:context,
+                                  ontab: () {},
+                                  context: context,
                                   icon: Icons.email_outlined,
-                                  hintText: 'Email...', isPassword: false,isEmail:  true,controller:  emailController
+                                  hintText: 'Email...',
+                                  isPassword: false,
+                                  isEmail: true,
+                                  controller: emailController),
+                              SizedBox(
+                                height: 1.5,
                               ),
                               EditTextField(
+                                  ontab: () {},
                                   context: context,
                                   icon: Icons.lock_outline,
                                   hintText: 'Password...',
