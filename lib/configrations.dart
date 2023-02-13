@@ -15,8 +15,8 @@ List<Map> categories = [
 ];
 
 List<Map> drawerItems = [
-  {'icon': FontAwesomeIcons.home, 'title': 'Home'},
-  {'icon': Icons.mail, 'title': 'Recent Chats'},
-  {'icon': Icons.favorite, 'title': 'Favorites'},
-  {'icon': FontAwesomeIcons.userAlt, 'title': 'Profile'},
+  {'icon': FontAwesomeIcons.home, 'title': 'الصفحة الرئيسية'},
+  {'icon': Icons.mail, 'title': 'محادثات'},
+  {'icon': Icons.favorite, 'title': 'مفضلات'},
+  {'icon': FontAwesomeIcons.userAlt, 'title': 'صفحة شخصية'},
 ];

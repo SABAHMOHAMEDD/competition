@@ -11,20 +11,6 @@ class MarafekTab extends StatelessWidget {
     ];
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          margin: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          decoration: BoxDecoration(
-              color: Colors.blueGrey[200],
-              borderRadius: BorderRadius.circular(5)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Spacer(),
-              Text('خدمات متعلقة بالاحوال الشخصية والاحوال المدنية'),
-            ],
-          ),
-        ),
         Expanded(
           child: GridView.builder(
               physics: BouncingScrollPhysics(),

@@ -75,7 +75,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 width: 10,
               ),
               Text(
-                'Settings',
+                'الاعدادات',
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
@@ -91,7 +91,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 width: 10,
               ),
               Text(
-                'Log out',
+                'خروج',
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               )

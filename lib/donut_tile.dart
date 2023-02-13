@@ -15,14 +15,16 @@ class DonutTile extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.blueGrey[100],
-            borderRadius: BorderRadius.circular(12)),
+            color: Colors.blueGrey, borderRadius: BorderRadius.circular(12)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               donutFlavour,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
           ],
         ),

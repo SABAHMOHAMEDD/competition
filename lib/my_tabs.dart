@@ -14,7 +14,7 @@ class MyTab extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-            color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold),
+            color: Colors.blueGrey, fontSize: 12, fontWeight: FontWeight.bold),
       ),
       decoration: BoxDecoration(
         // color: Colors.grey[100],

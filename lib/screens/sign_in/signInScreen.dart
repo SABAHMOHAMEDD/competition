@@ -1,10 +1,8 @@
-import 'package:competition/home/home_screen.dart';
 import 'package:competition/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 
 import '../../const/const.dart';
 import '../../widgets/button.dart';
@@ -49,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                     Column(
                       children: [
                         Expanded(
-                          flex: 5,
+                          flex: 3,
                           child: Padding(
                             padding: EdgeInsets.only(top: size.height * .1),
                             child: Text(
@@ -65,7 +63,16 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          flex: 7,
+                            flex: 2,
+                            child: Container(
+                              height: 200,
+                              child: Image(
+                                image:
+                                    AssetImage('assets/images/image (1).png'),
+                              ),
+                            )),
+                        Expanded(
+                          flex: 4,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -73,7 +80,7 @@ class SignInScreen extends StatelessWidget {
                                   ontab: () {},
                                   context: context,
                                   icon: Icons.email_outlined,
-                                  hintText: 'Email...',
+                                  hintText: '...Email',
                                   isPassword: false,
                                   isEmail: true,
                                   controller: emailController),
@@ -84,10 +91,13 @@ class SignInScreen extends StatelessWidget {
                                   ontab: () {},
                                   context: context,
                                   icon: Icons.lock_outline,
-                                  hintText: 'Password...',
+                                  hintText: '...Password',
                                   isPassword: true,
                                   isEmail: false,
                                   controller: passwordController),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -97,13 +107,12 @@ class SignInScreen extends StatelessWidget {
                                     width: 2.58,
                                     voidCallback: () {
                                       HapticFeedback.lightImpact();
-                                      Fluttertoast.showToast(
-                                          msg: 'Login button pressed');
+
                                       SignInCubit.get(context).userLogin(
                                           email: emailController.text,
                                           password: passwordController.text);
-                                      Get.to(() => HomeScreen(),
-                                          duration: Duration(seconds: 1));
+                                      navigateToReplacement(
+                                          context, HomePage());
                                     },
                                   ),
                                   SizedBox(width: size.width / 20),

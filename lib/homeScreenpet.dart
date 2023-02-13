@@ -18,9 +18,9 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
 
   bool isDrawerOpen = false;
   List<Widget> mytabs = [
-    MyTab(text: 'خدمات القطارات'),
-    MyTab(text: ' الشبكات'),
     MyTab(text: ' خدمات المرور'),
+    MyTab(text: 'خدمات القطارات'),
+    MyTab(text: ' خدمات الاتصالات'),
   ];
 
   @override
@@ -33,7 +33,6 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
         ..rotateY(isDrawerOpen ? -0.5 : 0),
       duration: Duration(milliseconds: 250),
       decoration: BoxDecoration(
-          color: Colors.grey[200],
           borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
       child: DefaultTabController(
         length: mytabs.length,
@@ -43,7 +42,7 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
             leading: isDrawerOpen
                 ? IconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios,
+                      Icons.arrow_forward_ios,
                       color: Colors.white,
                     ),
                     onPressed: () {
@@ -65,8 +64,8 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                     ),
                     onPressed: () {
                       setState(() {
-                        xOffset = 230;
-                        yOffset = 150;
+                        xOffset = -70;
+                        yOffset = 170;
                         scaleFactor = 0.6;
                         isDrawerOpen = true;
                       });
@@ -76,9 +75,7 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
           body: Column(
             children: [
               Container(
-                // height: 100,
                 width: double.infinity,
-                //  color: Colors.blueGrey,
                 child: Column(
                   children: [
                     Container(
@@ -87,7 +84,6 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                       child: Stack(
                         children: [
                           Container(
-                            //  padding: EdgeInsets.only(left: 25, right: 25, bottom: 40),
                             height: size.height * 0.2 - 27,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
@@ -96,10 +92,12 @@ class _HomeScreenpetState extends State<HomeScreenpet> {
                                 color: Colors.blueGrey),
                             child: Row(
                               children: [
-                                Spacer(),
+                                SizedBox(
+                                  width: 25,
+                                ),
                                 Center(
                                   child: Text(
-                                    '      ..مرحبا بك          ',
+                                    'مرحبا بك...',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,

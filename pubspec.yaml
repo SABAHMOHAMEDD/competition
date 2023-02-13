@@ -53,6 +53,7 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   date_field: ^3.0.0
   intl: ^0.17.0
+  sizer: ^2.0.15
 
 
 

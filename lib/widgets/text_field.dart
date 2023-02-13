@@ -42,15 +42,18 @@ class EditTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
+            textAlign: TextAlign.end,
             onTap: ontab(),
             controller: controller,
-            style: TextStyle(color: Colors.white.withOpacity(.9)),
+            style: TextStyle(
+              color: Colors.white.withOpacity(.9),
+            ),
             cursorColor: Colors.white,
             obscureText: isPassword,
             keyboardType:
                 isEmail ? TextInputType.emailAddress : TextInputType.text,
             decoration: InputDecoration(
-              prefixIcon: Icon(
+              suffixIcon: Icon(
                 icon,
                 color: Colors.white.withOpacity(.7),
               ),
